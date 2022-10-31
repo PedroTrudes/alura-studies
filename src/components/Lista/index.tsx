@@ -1,5 +1,7 @@
 import React from 'react';
-import './style.scss';
+import style from './Lista.module.scss';
+import Botao from '../Botao';
+import Item from './Item'
 
 function Lista(){
     const tarefas = [{
@@ -13,15 +15,15 @@ function Lista(){
         tempo: '00:30:00'
     }]
     return(
-        <aside className="listaTarefas">
+        <aside className={style.listaTarefas}>
             <h2>Estudos do dia</h2>
             <ul>
                 {tarefas.map((item, index) => (
-                    //Key={index} serve para pegar o ID de um JSON
-                    <li key={index} className="item">
-                        <h2>{item.tarefa}</h2>
-                        <span>{item.tempo}</span>
-                    </li>
+                  <Item 
+                  key={index}
+                  tarefa={item.tarefa}
+                  tempo={item.tempo}
+                  />
                 ))}
             </ul>
         </aside>
